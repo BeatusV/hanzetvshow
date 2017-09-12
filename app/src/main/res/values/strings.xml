@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TVshow</string>
+    <string name="app_search">Search</string>
+    <string name="app_enter_movies">Enter a movie or serie title...</string>
+    <string name="app_result_text">You searched for the following:</string>
 </resources>
