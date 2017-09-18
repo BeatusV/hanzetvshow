@@ -4,24 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hanze.tvshow.MainActivity">
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textShortMessage"
-        android:hint="@string/app_enter_movies"
-        tools:layout_editor_absoluteX="97dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="78dp" />
+    tools:context="hanze.tvshow.DisplaySearch">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_search"
@@ -31,9 +17,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         android:layout_marginTop="30dp"
-        android:onClick="sendMessage"
+        android:onClick="sendRequest"
         />
-
-
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton"
+        android:text="Results will be shown here"
+        android:layout_marginTop="30dp"/>
 
 </android.support.constraint.ConstraintLayout>
