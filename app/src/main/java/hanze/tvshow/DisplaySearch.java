@@ -1,6 +1,7 @@
 package hanze.tvshow;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.FragmentActivity;
@@ -13,18 +14,29 @@ public class DisplaySearch  extends FragmentActivity implements DownloadCallback
     private TextView mDatatext;
     private NetworkFragment mNetworkFragment;
     private boolean mDownloading = false;
+    private String search = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_search);
         mDatatext = (TextView) findViewById(R.id.resultView);
-        mNetworkFragment = NetworkFragment.getInstance(getFragmentManager(), "https://api.tvmaze.com/search/shows?q=girls");
+        Intent intent = getIntent();
+        search = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        mNetworkFragment = NetworkFragment.getInstance(getFragmentManager(), "https://api.tvmaze.com/search/shows?q="+search);
     }
 
-    public void sendRequest(View view){
+    @Override
+    protected void onStart(){
+        super.onStart();
+
         startDownload();
     }
+
+
+//    public void sendRequest(View view){
+//        startDownload();
+//    }
     private void startDownload(){
         if (!mDownloading && mNetworkFragment != null){
             mNetworkFragment.startDownload();

@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
 
     public void sendMessage(View view){
         Intent intent = new Intent(this, DisplaySearch.class);
+        EditText search = (EditText) findViewById(R.id.editText);
+        intent.putExtra(EXTRA_MESSAGE, search.getText().toString());
         startActivity(intent);
     }
 
